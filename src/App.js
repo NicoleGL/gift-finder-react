@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./screens/Home";
 import Budget from "./screens/Budget";
 import Category from "./screens/Category";
+import Character from "./screens/Character";
 import NotFound from "./screens/NotFound";
 import { ROUTE_NAMES } from "./constants";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path={ROUTE_NAMES.CATEGORY}>
               <Category />
+            </Route>
+            <Route exact path={ROUTE_NAMES.CHARACTER}>
+              <Character />
             </Route>
             <Route exact path={ROUTE_NAMES.NOT_FOUND}>
               <NotFound />

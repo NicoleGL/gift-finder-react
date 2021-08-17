@@ -1,0 +1,41 @@
+.character-text {
+  margin: 0;
+  font-size: 20px;
+  font-family: Petrona;
+  color: black;
+}
+
+.character-img {
+  width: 70%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.character-button {
+  padding: 0;
+  width: 15%;
+  height: 45%;
+  margin: 0px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 42%;
+}
+
+.character-button:hover {
+  background: var(--white-hover);
+}
+
+.character-button:active {
+  filter: none;
+}
+
+.selected {
+  filter: none !important;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

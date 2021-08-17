@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
+import styles from "./index.module.css";
 
 function NavigationButton(props) {
   const { text, color, to } = props;
   return (
     <Link
       to={to}
-      className="Navigation-button"
+      className={styles["Navigation-button"]}
       style={{ backgroundColor: color }}
     >
       {text}

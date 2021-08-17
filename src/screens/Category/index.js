@@ -5,6 +5,7 @@ import Icon from "../../components/Icon";
 import categoryIcon from "../../assets/icons/freedom-of-choice.png";
 import ReturnAndContinueDiv from "../../components/ReturnAndContinueDiv";
 import { ROUTE_NAMES } from "../../constants";
+import { selectAll, deselectAll, selectOrDeselect } from "../../functions";
 
 function Category() {
   const categories = [
@@ -51,22 +52,6 @@ function Category() {
     }
   }
 
-  function selectOrDeselect(el) {
-    el.classList.toggle(styles.selected);
-  }
-
-  function selectAll(elements) {
-    for (let element of elements) {
-      element.classList.add(styles.selected);
-    }
-  }
-
-  function deselectAll(elements) {
-    for (let element of elements) {
-      element.classList.remove(styles.selected);
-    }
-  }
-
   function capitalizeCategories(categories) {
     const array = [];
     for (let category of categories) {
@@ -87,7 +72,8 @@ function Category() {
             key={category}
             id={category}
             onClick={function () {
-              selectOrDeselect(document.getElementById(category));
+              console.log(selectOrDeselect);
+              selectOrDeselect(document.getElementById(category), styles);
               showOrHideIcon(category);
             }}
           >
@@ -104,10 +90,10 @@ function Category() {
             );
             allButton.classList.toggle("black-selected");
             if (allButton.classList.contains("black-selected")) {
-              selectAll(categoryButtons);
+              selectAll(categoryButtons, styles);
               showAllIcons();
             } else {
-              deselectAll(categoryButtons);
+              deselectAll(categoryButtons, styles);
               hideAllIcons();
             }
           }}
@@ -144,7 +130,10 @@ function Category() {
           ></i>
         </div>
       </div>
-      <ReturnAndContinueDiv returnPath={ROUTE_NAMES.BUDGET} />
+      <ReturnAndContinueDiv
+        returnPath={ROUTE_NAMES.BUDGET}
+        continuePath={ROUTE_NAMES.CHARACTER}
+      />
     </>
   );
 }
