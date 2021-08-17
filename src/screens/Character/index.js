@@ -47,7 +47,10 @@ function Character() {
             imgSrc="spiritualist.png"
           />
         </div>
-        <ReturnAndContinueDiv returnPath={ROUTE_NAMES.CATEGORY} />
+        <ReturnAndContinueDiv
+          returnPath={ROUTE_NAMES.CATEGORY}
+          continuePath={ROUTE_NAMES.RESULT}
+        />
       </div>
     </>
   );

@@ -3,5 +3,6 @@ export const ROUTE_NAMES = {
   BUDGET: "/budget",
   CATEGORY: "/category",
   CHARACTER: "/character",
+  RESULT: "/result",
   NOT_FOUND: "/*",
 };

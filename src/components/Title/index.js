@@ -1,9 +1,9 @@
 import React from "react";
-import "./index.css";
+import styles from "./index.module.css";
 
 function Title(props) {
   const { text } = props;
-  return <h1 className="title">{text}</h1>;
+  return <h1 className={styles.title}>{text}</h1>;
 }
 
 export default Title;
