@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./index.css";
-import NavigationButton from "../../components/NavigationButton";
+import styles from "./index.module.css";
 import { ROUTE_NAMES } from "../../constants";
 import MoneyBag from "../../assets/icons/paid.png";
 import Icon from "../../components/Icon";
 import Title from "../../components/Title";
+import ReturnAndContinueDiv from "../../components/ReturnAndContinueDiv";
 
 function Budget() {
   const [value, setValue] = useState(20);
@@ -22,19 +22,15 @@ function Budget() {
         max="101"
         value={value}
         onChange={onBudgetChange}
-        className="slider"
+        className={styles.slider}
       />
-      <p className="budget-value" id="budget-text">
+      <p className={styles["budget-value"]} id="budget-text">
         {budgetText}
       </p>
-      <div className="two-buttons-div">
-        <NavigationButton
-          to={ROUTE_NAMES.HOME}
-          text="Return"
-          color="var(--purple)"
-        />
-        <NavigationButton to={ROUTE_NAMES.CATEGORY} text="Continue" />
-      </div>
+      <ReturnAndContinueDiv
+        returnPath={ROUTE_NAMES.HOME}
+        continuePath={ROUTE_NAMES.CATEGORY}
+      />
     </>
   );
 }

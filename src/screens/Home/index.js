@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTE_NAMES } from "../../constants";
-import "./index.css";
+import styles from "./index.module.css";
 
 function Home() {
   const imageLinksAbove = [
@@ -32,28 +32,28 @@ function Home() {
 
   return (
     <>
-      <div className="display-of-products above">
+      <div className={`${styles["display-of-products"]} ${styles["above"]}`}>
         {imageLinksAbove.map((link) => (
           <img
             src={sourcePath.concat(link)}
             alt=""
-            className="display-image"
+            className={styles["display-image"]}
             key={link}
           />
         ))}
       </div>
-      <div className="display-of-products above2">
+      <div className={`${styles["display-of-products"]} ${styles["above2"]}`}>
         {imageLinksAbove.map((link) => (
           <img
             src={sourcePath.concat(link)}
             alt=""
-            className="display-image"
+            className={styles["display-image"]}
             key={link}
           />
         ))}
       </div>
-      <h1 className="Title">Klarna Gift Finder</h1>
-      <p className="Subtitle">
+      <h1 className={styles.Title}>Klarna Gift Finder</h1>
+      <p className={styles.Subtitle}>
         Out of ideas for a gift?
         <br />
         Don't worry, we are here for you.
@@ -65,25 +65,25 @@ function Home() {
         <br />
         Simple as that!
       </p>
-      <Link to={ROUTE_NAMES.BUDGET} className="Start-button">
-        <i className="fas fa-gift"></i>Find your gift
+      <Link to={ROUTE_NAMES.BUDGET} className={styles["Start-button"]}>
+        <i className={`${styles["fa-mar"]} fas fa-gift`}></i>Find your gift
       </Link>
-      <div className="display-of-products below">
+      <div className={`${styles["display-of-products"]} ${styles["below"]}`}>
         {imageLinksBelow.map((link) => (
           <img
             src={sourcePath.concat(link)}
             alt=""
-            className="display-image"
+            className={styles["display-image"]}
             key={link}
           />
         ))}
       </div>
-      <div className="display-of-products below2">
+      <div className={`${styles["display-of-products"]} ${styles["below2"]}`}>
         {imageLinksBelow.map((link) => (
           <img
             src={sourcePath.concat(link)}
             alt=""
-            className="display-image"
+            className={styles["display-image"]}
             key={link}
           />
         ))}

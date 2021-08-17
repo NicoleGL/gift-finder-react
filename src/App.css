@@ -11,7 +11,7 @@
   align-items: center;
   --border-size: 75px;
   border: var(--border-size) solid transparent;
-  border-image: url(./assets/pattern2.png) 33% round;
+  border-image: url(./assets/images/pattern2.png) 33% round;
   height: calc(100% - 2 * var(--border-size));
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
