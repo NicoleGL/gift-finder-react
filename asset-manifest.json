@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/klarna-gift-finder/static/css/main.ae379f65.chunk.css",
+    "main.js": "/klarna-gift-finder/static/js/main.7b4f51cf.chunk.js",
+    "main.js.map": "/klarna-gift-finder/static/js/main.7b4f51cf.chunk.js.map",
+    "runtime-main.js": "/klarna-gift-finder/static/js/runtime-main.476abfa9.js",
+    "runtime-main.js.map": "/klarna-gift-finder/static/js/runtime-main.476abfa9.js.map",
+    "static/js/2.abcd74ea.chunk.js": "/klarna-gift-finder/static/js/2.abcd74ea.chunk.js",
+    "static/js/2.abcd74ea.chunk.js.map": "/klarna-gift-finder/static/js/2.abcd74ea.chunk.js.map",
+    "static/js/3.7a391e8f.chunk.js": "/klarna-gift-finder/static/js/3.7a391e8f.chunk.js",
+    "static/js/3.7a391e8f.chunk.js.map": "/klarna-gift-finder/static/js/3.7a391e8f.chunk.js.map",
+    "index.html": "/klarna-gift-finder/index.html",
+    "service-worker.js": "/klarna-gift-finder/service-worker.js",
+    "service-worker.js.map": "/klarna-gift-finder/service-worker.js.map",
+    "static/css/main.ae379f65.chunk.css.map": "/klarna-gift-finder/static/css/main.ae379f65.chunk.css.map",
+    "static/js/2.abcd74ea.chunk.js.LICENSE.txt": "/klarna-gift-finder/static/js/2.abcd74ea.chunk.js.LICENSE.txt",
+    "static/media/airport-dad.png": "/klarna-gift-finder/static/media/airport-dad.ac9aae9d.png",
+    "static/media/emo.png": "/klarna-gift-finder/static/media/emo.9a82d632.png",
+    "static/media/foodie-mom.png": "/klarna-gift-finder/static/media/foodie-mom.b81851e8.png",
+    "static/media/geek.png": "/klarna-gift-finder/static/media/geek.8684428b.png",
+    "static/media/gym-rat.png": "/klarna-gift-finder/static/media/gym-rat.2fe91e20.png",
+    "static/media/influencer.png": "/klarna-gift-finder/static/media/influencer.380adf3e.png",
+    "static/media/pattern2.png": "/klarna-gift-finder/static/media/pattern2.3ace3575.png",
+    "static/media/spiritualist.png": "/klarna-gift-finder/static/media/spiritualist.245e2731.png",
+    "static/media/traveller.png": "/klarna-gift-finder/static/media/traveller.26f99cd6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.476abfa9.js",
+    "static/js/2.abcd74ea.chunk.js",
+    "static/css/main.ae379f65.chunk.css",
+    "static/js/main.7b4f51cf.chunk.js"
+  ]
+}
