@@ -1,6 +1,6 @@
 {
   "name": "gift-finder-react",
-  "homepage": "https://nicolegl.github.io/klarna-gift-finder",
+  "homepage": "http://nicolegl.github.io/gift-finder-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
