@@ -5,3 +5,13 @@
   justify-content: space-around;
   width: 100%;
 }
+
+@media only screen and (max-width: 700px) {
+  .ReturnAndContinueDiv {
+    height: 100px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+}

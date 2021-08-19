@@ -43,3 +43,18 @@
 .fa-mar {
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 700px) {
+  .title {
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .randomize-button {
+    font-size: 16px;
+    min-width: 80%;
+  }
+  .final-buttons-div {
+    width: 100%;
+  }
+}

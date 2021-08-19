@@ -5,9 +5,12 @@ import MoneyBag from "../../assets/icons/paid.png";
 import Icon from "../../components/Icon";
 import Title from "../../components/Title";
 import ReturnAndContinueDiv from "../../components/ReturnAndContinueDiv";
+import { useGiftFinderContext, setBudget } from "../../store";
 
 function Budget() {
-  const [value, setValue] = useState(20);
+  const { state, dispatch } = useGiftFinderContext();
+  const initialValue = state.budget || 20;
+  const [value, setValue] = useState(initialValue);
   function onBudgetChange(ev) {
     setValue(ev.target.value);
   }
@@ -30,6 +33,7 @@ function Budget() {
       <ReturnAndContinueDiv
         returnPath={ROUTE_NAMES.HOME}
         continuePath={ROUTE_NAMES.CATEGORY}
+        onContinueClick={() => dispatch(setBudget(value))}
       />
     </>
   );

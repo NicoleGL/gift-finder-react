@@ -1,54 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Title from "../../components/Title";
 import Icon from "../../components/Icon";
 import categoryIcon from "../../assets/icons/freedom-of-choice.png";
 import ReturnAndContinueDiv from "../../components/ReturnAndContinueDiv";
 import { ROUTE_NAMES } from "../../constants";
-import { selectAll, deselectAll, selectOrDeselect } from "../../functions";
+import { useGiftFinderContext, setCategories } from "../../store";
+
+const categories = [
+  "clothes",
+  "electronics",
+  "decoration",
+  "sports and outdoors",
+  "games",
+  "hobbies",
+  "books",
+  "cooking",
+  "accessories",
+];
+
+const categoryAndIcon = {
+  clothes: "fa-tshirt",
+  electronics: "fa-robot",
+  decoration: "fa-couch",
+  "sports and outdoors": "fa-football-ball",
+  games: "fa-gamepad",
+  hobbies: "fa-palette",
+  books: "fa-book-open",
+  cooking: "fa-cookie-bite",
+  accessories: "fa-shopping-bag",
+};
 
 function Category() {
-  const categories = [
-    "clothes",
-    "electronics",
-    "decoration",
-    "sports and outdoors",
-    "games",
-    "hobbies",
-    "books",
-    "cooking",
-    "accessories",
-  ];
+  const { state, dispatch } = useGiftFinderContext();
+  const [selected, setSelected] = useState(state.categories);
 
-  const categoryAndIcon = {
-    Clothes: "fa-tshirt",
-    Electronics: "fa-robot",
-    Decoration: "fa-couch",
-    "Sports and outdoors": "fa-football-ball",
-    Games: "fa-gamepad",
-    Hobbies: "fa-palette",
-    Books: "fa-book-open",
-    Cooking: "fa-cookie-bite",
-    Accessories: "fa-shopping-bag",
-  };
+  useEffect(() => {
+    showOrHideIcon(selected);
+  }, [selected]);
 
-  function showOrHideIcon(category) {
-    const iconClass = categoryAndIcon[category];
-    const icon = document.getElementsByClassName(iconClass)[0];
-    icon.classList.toggle(styles.invisible);
-  }
-
-  function showAllIcons() {
-    const icons = document.getElementsByClassName("fas");
-    for (let icon of icons) {
-      icon.classList.remove(styles.invisible);
-    }
-  }
-
-  function hideAllIcons() {
-    const icons = document.getElementsByClassName("fas");
-    for (let icon of icons) {
-      icon.classList.add(styles.invisible);
+  function showOrHideIcon(selected) {
+    for (let category of categories) {
+      const iconClass = categoryAndIcon[category];
+      const icon = document.getElementsByClassName(iconClass)[0];
+      if (selected.includes(category)) {
+        icon.classList.remove(styles.invisible);
+      } else {
+        icon.classList.add(styles.invisible);
+      }
     }
   }
 
@@ -61,40 +60,54 @@ function Category() {
     return array;
   }
 
+  function toggleSelected(key) {
+    if (selected.includes(key)) {
+      const updatedSelected = [...selected];
+      updatedSelected.splice(updatedSelected.indexOf(key), 1);
+      setSelected(updatedSelected);
+    } else {
+      setSelected([...selected, key]);
+    }
+  }
+
+  const selectedStyle = {
+    filter: "none",
+    boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25)",
+  };
+
   return (
     <>
       <Icon src={categoryIcon} />
       <Title text="2. Choose a category:" />
       <div className={styles["circle-of-categories"]}>
-        {capitalizeCategories(categories).map((category) => (
-          <a
-            className={styles["category-button"]}
-            key={category}
-            id={category}
-            onClick={function () {
-              console.log(selectOrDeselect);
-              selectOrDeselect(document.getElementById(category), styles);
-              showOrHideIcon(category);
-            }}
-          >
-            {category}
-          </a>
-        ))}
+        {capitalizeCategories(categories).map((category) => {
+          const lowerCaseCategory = category.toLowerCase();
+          const addSelectedStyle = selected.includes(lowerCaseCategory);
+
+          return (
+            <a
+              style={addSelectedStyle ? selectedStyle : {}}
+              className={styles["category-button"]}
+              key={category}
+              id={category}
+              onClick={function () {
+                toggleSelected(lowerCaseCategory);
+              }}
+            >
+              {category}
+            </a>
+          );
+        })}
         <a
           className={styles["all-button"]}
           id="all-button"
           onClick={() => {
             const allButton = document.getElementById("all-button");
-            const categoryButtons = document.getElementsByClassName(
-              styles["category-button"]
-            );
             allButton.classList.toggle("black-selected");
             if (allButton.classList.contains("black-selected")) {
-              selectAll(categoryButtons, styles);
-              showAllIcons();
+              setSelected([...categories]);
             } else {
-              deselectAll(categoryButtons, styles);
-              hideAllIcons();
+              setSelected([]);
             }
           }}
         >
@@ -133,6 +146,7 @@ function Category() {
       <ReturnAndContinueDiv
         returnPath={ROUTE_NAMES.BUDGET}
         continuePath={ROUTE_NAMES.CHARACTER}
+        onContinueClick={() => dispatch(setCategories(selected))}
       />
     </>
   );

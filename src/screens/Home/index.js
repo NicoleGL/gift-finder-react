@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTE_NAMES } from "../../constants";
+import { useGiftFinderContext } from "../../store";
 import styles from "./index.module.css";
 
 function Home() {
@@ -30,6 +31,8 @@ function Home() {
   ];
   const sourcePath = "https://img.klarnacdn.net/2/thumbnail/";
 
+  const { state } = useGiftFinderContext();
+  console.log(state);
   return (
     <>
       <div className={`${styles["display-of-products"]} ${styles["above"]}`}>

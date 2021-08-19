@@ -3,6 +3,7 @@
   height: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   background: white;
@@ -29,7 +30,8 @@
 }
 
 h2,
-p {
+p,
+a {
   font-family: Petrona;
 }
 
@@ -48,7 +50,6 @@ p {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  font-family: Petrona;
   color: white;
   text-decoration: none;
   border-radius: 20px;
@@ -57,4 +58,56 @@ p {
 
 .store-link:hover {
   background: var(--purple-hover);
+}
+
+.icon {
+  color: var(--purple);
+}
+
+.no-products-message {
+  font-size: 25px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  h2,
+  p,
+  .store-link {
+    font-size: 16px;
+  }
+  .result-div {
+    width: 80%;
+    flex-wrap: nowrap;
+  }
+  .information {
+    display: flex;
+    overflow-y: scroll;
+    flex-flow: column nowrap;
+  }
+  .store-link {
+    width: 100%;
+    height: 30px;
+    border-radius: 0;
+    margin-top: 0;
+    padding: 5px 0;
+  }
+  .product-img {
+    width: 90%;
+    height: auto;
+    align-self: center;
+  }
+  h2 {
+    width: 90%;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  p {
+    width: 90%;
+    align-self: center;
+    margin-bottom: 0;
+  }
+  .no-products-message {
+    font-size: 16px;
+  }
 }

@@ -4,3 +4,11 @@
   margin-top: 3%;
   margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 700px) {
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-top: 20%;
+  }
+}

@@ -21,3 +21,18 @@
   text-align: center;
   margin-bottom: auto;
 }
+
+@media only screen and (max-width: 700px) {
+  .slider {
+    width: 80%;
+    height: 12px;
+  }
+  .slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+  }
+  .budget-value {
+    font-size: 16px;
+  }
+}

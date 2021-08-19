@@ -3,11 +3,11 @@ import { deselectAll, selectOrDeselect } from "../../functions";
 import styles from "./index.module.css";
 
 function CharacterButton(props) {
-  const { id, imgSrc, text } = props;
+  const { id, imgSrc, text, onClick, style } = props;
 
   function importAll(r) {
     let images = {};
-    r.keys().forEach((item, index) => {
+    r.keys().forEach((item) => {
       images[item.replace("./", "")] = r(item);
     });
     return images;
@@ -21,15 +21,14 @@ function CharacterButton(props) {
     <a
       className={styles["character-button"]}
       id={id}
-      onClick={() => {
-        const characterButtons = document.getElementsByClassName(
-          styles["character-button"]
-        );
-        deselectAll(characterButtons, styles);
-        selectOrDeselect(document.getElementById(id), styles);
-      }}
+      onClick={onClick}
+      style={style}
     >
-      <img src={images[imgSrc].default} className={styles["character-img"]} />
+      <img
+        src={images[imgSrc].default}
+        className={styles["character-img"]}
+        alt=""
+      />
       <p className={styles["character-text"]}>{text}</p>
     </a>
   );
