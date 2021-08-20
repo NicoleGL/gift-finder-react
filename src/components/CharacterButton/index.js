@@ -1,5 +1,4 @@
 import React from "react";
-import { deselectAll, selectOrDeselect } from "../../functions";
 import styles from "./index.module.css";
 
 function CharacterButton(props) {

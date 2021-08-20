@@ -52,7 +52,7 @@ function Character() {
     },
   ];
 
-  const { state, dispatch } = useGiftFinderContext();
+  const { dispatch } = useGiftFinderContext();
   const [selected, setSelected] = useState(null);
 
   const selectedStyle = {
@@ -73,6 +73,7 @@ function Character() {
               <CharacterButton
                 style={addSelectedStyle ? selectedStyle : {}}
                 id={char.id}
+                key={char.id}
                 imgSrc={char.imgSrc}
                 text={char.text}
                 onClick={() => {
