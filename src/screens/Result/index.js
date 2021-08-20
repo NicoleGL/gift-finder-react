@@ -1,20 +1,30 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavigationButton from "../../components/NavigationButton";
 import ResultBox from "../../components/ResultBox";
 import { ROUTE_NAMES } from "../../constants";
 import { useGiftFinderContext, resetState } from "../../store";
 import styles from "./index.module.css";
+import accessories from "../../assets/jsons/accessories.json";
+import books from "../../assets/jsons/books.json";
+import clothes from "../../assets/jsons/clothes.json";
+import cooking from "../../assets/jsons/cooking.json";
+import decoration from "../../assets/jsons/decoration.json";
+import electronics from "../../assets/jsons/electronics.json";
+import games from "../../assets/jsons/games.json";
+import hobbies from "../../assets/jsons/hobbies.json";
+import sportsandoutdoors from "../../assets/jsons/sportsandoutdoors.json";
 
-const pathToJsons = "./jsons/";
-async function fetchJsonData(nameOfJson) {
-  const pathToFile = pathToJsons.concat(nameOfJson);
-  const response = await fetch(pathToFile, {
-    method: "get",
-    mode: "no-cors",
-  });
-  const data = response.json();
-  return data;
-}
+const categories = {
+  accessories,
+  books,
+  clothes,
+  cooking,
+  decoration,
+  electronics,
+  games,
+  hobbies,
+  sportsandoutdoors,
+};
 
 function Result() {
   const { state, dispatch } = useGiftFinderContext();
@@ -26,18 +36,12 @@ function Result() {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const promises = selectedCategories.map((category) => {
-        return fetchJsonData(
-          category.toLowerCase().replace(/ /g, "").concat(".json")
-        );
-      });
-      await Promise.all(promises).then((data) => {
-        const listOfProducts = data.flat();
-        setProducts(listOfProducts);
-      });
-    };
-    fetchData();
+    const selectedProducts = selectedCategories
+      .map((category) => {
+        return categories[category];
+      })
+      .flat();
+    setProducts(selectedProducts);
   }, []);
 
   useEffect(() => {
