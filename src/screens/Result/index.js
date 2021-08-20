@@ -23,7 +23,7 @@ const categories = {
   electronics,
   games,
   hobbies,
-  sportsandoutdoors,
+  "sports and outdoors": sportsandoutdoors,
 };
 
 function Result() {
@@ -38,6 +38,7 @@ function Result() {
   useEffect(() => {
     const selectedProducts = selectedCategories
       .map((category) => {
+        console.log(category);
         return categories[category];
       })
       .flat();
