@@ -13,6 +13,14 @@
   justify-content: center;
 }
 
+.black-hover:hover {
+  background-color: var(--black-hover);
+}
+
+.purple-hover:hover {
+  background-color: var(--purple-hover) !important;
+}
+
 .fa-mar {
   margin-right: 5px;
 }
