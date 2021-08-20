@@ -1,6 +1,5 @@
 {
   "name": "gift-finder-react",
-  "homepage": "https://nicolegl.github.io/gift-finder-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
