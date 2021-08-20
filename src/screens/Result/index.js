@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import NavigationButton from "../../components/NavigationButton";
 import ResultBox from "../../components/ResultBox";
 import { ROUTE_NAMES } from "../../constants";
@@ -28,35 +28,32 @@ const categories = {
 
 function Result() {
   const { state, dispatch } = useGiftFinderContext();
-  const selectedCategories = [...state.categories];
+  const selectedCategories = state.categories;
   const selectedBudget = state.budget;
   const selectedCharacter = state.character;
 
-  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() => {
-    const selectedProducts = selectedCategories
+  const products = useMemo(() => {
+    return selectedCategories
       .map((category) => {
-        console.log(category);
         return categories[category];
       })
       .flat();
-    setProducts(selectedProducts);
-  }, []);
+  }, [selectedCategories]);
 
   useEffect(() => {
+    function filterProducts(productList) {
+      return productList.filter((product) => {
+        const withinBudget = product.retail_price / 100 <= selectedBudget;
+        const matchesCharacter = product.character.includes(selectedCharacter);
+        return withinBudget && matchesCharacter;
+      });
+    }
+
     const finalList = filterProducts(products);
     setFilteredProducts(finalList);
-  }, [products]);
-
-  function filterProducts(productList) {
-    return productList.filter((product) => {
-      const withinBudget = product.retail_price / 100 <= selectedBudget;
-      const matchesCharacter = product.character.includes(selectedCharacter);
-      return withinBudget && matchesCharacter;
-    });
-  }
+  }, [products, selectedCharacter, selectedBudget]);
 
   function getRandomElementFromArray(arr) {
     const randomNum = Math.floor(Math.random() * arr.length);
@@ -78,7 +75,7 @@ function Result() {
       <h1 className={styles.title}>Your result is...</h1>
       <ResultBox product={product} />
       <div className={styles["final-buttons-div"]}>
-        <a
+        <button
           className={styles["randomize-button"]}
           onClick={() => {
             const updatedList = [...filteredProducts];
@@ -87,7 +84,7 @@ function Result() {
           }}
         >
           <i className={`${styles["fa-mar"]} fas fa-dice`}></i> Randomize Again
-        </a>
+        </button>
         <NavigationButton
           text="Start Again"
           to={ROUTE_NAMES.HOME}

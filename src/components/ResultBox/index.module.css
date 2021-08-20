@@ -31,7 +31,7 @@
 
 h2,
 p,
-a {
+button {
   font-family: Petrona;
 }
 
@@ -54,6 +54,7 @@ a {
   text-decoration: none;
   border-radius: 20px;
   margin-bottom: auto;
+  border: none;
 }
 
 .store-link:hover {

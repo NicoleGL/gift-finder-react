@@ -85,7 +85,7 @@ function Category() {
           const addSelectedStyle = selected.includes(lowerCaseCategory);
 
           return (
-            <a
+            <button
               style={addSelectedStyle ? selectedStyle : {}}
               className={styles["category-button"]}
               key={category}
@@ -95,10 +95,10 @@ function Category() {
               }}
             >
               {category}
-            </a>
+            </button>
           );
         })}
-        <a
+        <button
           className={styles["all-button"]}
           id="all-button"
           onClick={() => {
@@ -112,7 +112,7 @@ function Category() {
           }}
         >
           All
-        </a>
+        </button>
         <div className={styles["category-icons"]} id="category-icons">
           <i
             className={`${styles.invisible} ${styles["fa-mar"]} fas fa-cookie-bite`}

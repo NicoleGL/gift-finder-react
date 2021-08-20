@@ -13,14 +13,14 @@ function ResultBox(props) {
               className={styles["product-img"]}
               alt=""
             />
-            <a
+            <button
               href={product.web_url}
               className={styles["store-link"]}
               target="_blank"
               rel="noreferrer"
             >
               See in store
-            </a>
+            </button>
           </div>
           <div className={styles["product-info"]}>
             <h2>{product.title}</h2>

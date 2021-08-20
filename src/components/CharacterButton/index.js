@@ -17,7 +17,7 @@ function CharacterButton(props) {
   );
 
   return (
-    <a
+    <button
       className={styles["character-button"]}
       id={id}
       onClick={onClick}
@@ -29,7 +29,7 @@ function CharacterButton(props) {
         alt=""
       />
       <p className={styles["character-text"]}>{text}</p>
-    </a>
+    </button>
   );
 }
 
