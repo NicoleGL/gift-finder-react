@@ -1,7 +1,4 @@
 # Gift Finder
-The Gift Finder, but in REACT. Much Wow.
-
-![Doge Image](https://user-images.githubusercontent.com/87370749/130243405-a6a1c29f-47f3-43c3-a0dc-b6c19cf7f3a7.png)
----
+It has a 3 screens where the user can select their budget, the categories of the gift and the personality of the gift recipient. Given this data, the web will search for gifts that match this description and show them with a link to the selling page.
 
 You can find the `Live Demo` on [**Netlify**](https://ngl-gift-finder.netlify.app/)
